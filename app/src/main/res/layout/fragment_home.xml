@@ -51,7 +51,7 @@
         android:layout_marginBottom="80dp"
         android:layout_marginRight="16dp"
         android:contentDescription="Abrir IA"
-        android:src="@android:drawable/stat_notify_chat"
+        android:src="@drawable/ic_ai"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
