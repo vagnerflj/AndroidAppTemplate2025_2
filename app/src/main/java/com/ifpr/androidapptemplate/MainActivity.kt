@@ -1,6 +1,5 @@
 package com.ifpr.androidapptemplate
 
-import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ifpr.androidapptemplate.databinding.ActivityMainBinding
-import com.ifpr.androidapptemplate.ui.run.RunActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,14 +19,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // ⭐ IMPORTANTE — define o Toolbar como ActionBar
+        // Define o Toolbar como ActionBar (necessário para NavigationUI)
         setSupportActionBar(binding.toolbar)
-
-        // ⭐ FAB abre a tela de corrida
-        binding.fabRun.setOnClickListener {
-            val intent = Intent(this, RunActivity::class.java)
-            startActivity(intent)
-        }
 
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -47,5 +39,11 @@ class MainActivity : AppCompatActivity() {
 
         // Conecta Navigation com BottomNav
         navView.setupWithNavController(navController)
+    }
+
+    // Habilita o botão "up" quando necessário pela NavigationUI
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

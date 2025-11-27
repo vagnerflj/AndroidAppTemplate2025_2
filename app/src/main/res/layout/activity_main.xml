@@ -7,19 +7,18 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <!-- ⭐ TOOLBAR (necessário para Navigation UI) -->
+    <!-- TOOLBAR (necessário para Navigation UI) -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/purple_700"
-        android:title="GoRun"
         app:titleTextColor="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- ⭐ NAV HOST (fica abaixo do toolbar agora) -->
+    <!-- NAV HOST (fica abaixo do toolbar agora) -->
     <fragment
         android:id="@+id/nav_host_fragment_activity_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -32,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
-    <!-- ⭐ BOTTOM NAV -->
+    <!-- BOTTOM NAV -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
@@ -41,19 +40,6 @@
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- ⭐ FAB (botão flutuante de corrida) -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabRun"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:contentDescription="Iniciar corrida"
-        android:src="@android:drawable/ic_media_play"
-        app:tint="@android:color/white"
-        app:backgroundTint="@color/teal_700"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
